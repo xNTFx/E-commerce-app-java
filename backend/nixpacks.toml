@@ -1,2 +1,13 @@
 [phases.setup]
-nixPkgs = ["jdk21" , "maven"]
+nixPkgs = ["jdk21", "maven"]
+
+[phases.build]
+cmds = [
+  "export JAVA_HOME=$(readlink -f $(which java) | sed 's:/bin/java::')",
+  "java -version",
+  "mvn -version",
+  "mvn -DskipTests clean package"
+]
+
+[phases.start]
+cmd = "java -jar target/E-commerce-App-0.0.1-SNAPSHOT.jar"
