@@ -3,8 +3,10 @@ nixPkgs = ["jdk21", "maven"]
 
 [phases.build]
 cmds = [
-  "export JAVA_HOME=$(readlink -f $(which java) | sed 's:/bin/java::')",
+  "export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))",
+  "export PATH=$JAVA_HOME/bin:$PATH",
   "java -version",
   "mvn -version",
   "mvn -DskipTests clean package"
 ]
+
