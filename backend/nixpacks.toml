@@ -8,6 +8,3 @@ cmds = [
   "mvn -version",
   "mvn -DskipTests clean package"
 ]
-
-[phases.start]
-cmd = "java -jar target/E-commerce-App-0.0.1-SNAPSHOT.jar"
