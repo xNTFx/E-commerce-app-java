@@ -1,3 +1,5 @@
+package com.e_commerce.E_commerce.App.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -12,7 +14,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOriginPatterns("https://api.e-commerce-app-java.pawelsobon.pl")
+                        .allowedOrigins(
+                                "https://e-commerce-app-java.pawelsobon.pl",
+                                "https://www.e-commerce-app-java.pawelsobon.pl"
+                        ) 
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .exposedHeaders("Authorization")
