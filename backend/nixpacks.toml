@@ -1,12 +1,2 @@
 [phases.setup]
 nixPkgs = ["jdk21"]
-
-[phases.build]
-cmds = [
-  "mvn clean package -DskipTests"
-]
-
-[phases.start]
-cmds = [
-  "bash -c 'java -jar $(ls target/*.jar)'"
-]
